@@ -68,11 +68,15 @@
 - Full status timeline with progress history
 - Detailed order breakdown (items, quantities, totals)
 
-### 🎨 Beautiful UI/UX
-- Modern dark theme with premium design
-- Smooth animations and transitions (WOW.js)
-- Fully responsive — works on mobile, tablet, and desktop
-- Toast notifications for user feedback
+### 🎨 Beautiful UI/UX & Fancy Features
+- Modern dark theme with premium design system
+- **Shimmer Text Logo Effect**: Multi-tone gold-to-white animated shimmer branding (`brand-text-shimmer`)
+- **Floating Quick-Cart Button**: Fixed bottom-right quick action button with live item badge counter
+- **Glassmorphism Cards**: Translucent card backdrops with gold border glow on hover (`fancy-glass-card`)
+- **Custom Scrollbar**: Sleek orange/gold gradient custom scrollbar track
+- Smooth animations and transitions (WOW.js & animate.css)
+- Fully responsive layout — tailored for mobile, tablet, and desktop viewports
+- Interactive toast notifications for real-time order and reservation feedback
 
 ---
 
