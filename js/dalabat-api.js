@@ -349,6 +349,16 @@ function initNavbarCart() {
         $('#navbarCollapse').children('.btn-primary, a[href="booking.html"]').before(cartNavHtml);
     }
 
+    // Inject Floating Quick Cart Button
+    if (!$('#floatingCartBtn').length) {
+        $('body').append(`
+            <div id="floatingCartBtn" class="floating-cart-btn" onclick="openCartModal()" title="View Cart">
+                <i class="fa fa-shopping-basket"></i>
+                <span id="floatingCartBadge" class="badge bg-danger rounded-pill">0</span>
+            </div>
+        `);
+    }
+
     // Inject Cart Modal HTML into body if not present
     if (!$('#cartModal').length) {
         const cartModalHtml = `
@@ -593,7 +603,7 @@ function updateCartQuantity(foodId, delta) {
 
 function updateCartUI() {
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    $('#cartBadge').text(totalCount);
+    $('#cartBadge, #floatingCartBadge').text(totalCount);
 }
 
 function openCartModal() {

@@ -292,9 +292,8 @@ function updateAuthUI() {
         `);
     } else {
         authNavContainer.html(`
-            <button onclick="openAuthModal()" class="btn btn-outline-warning py-2 px-3 ms-2 fw-bold shadow-sm">
-                <i class="fa fa-sign-in-alt me-1"></i> Login / Register
-            </button>
+            <a href="login.html" class="btn btn-outline-warning py-2 px-3 ms-2 fw-bold shadow-sm">Login</a>
+            <a href="register.html" class="btn btn-warning text-dark py-2 px-3 ms-2 fw-bold shadow-sm">Register</a>
         `);
     }
 
@@ -348,6 +347,16 @@ function initNavbarCart() {
             </a>
         `;
         $('#navbarCollapse').children('.btn-primary, a[href="booking.html"]').before(cartNavHtml);
+    }
+
+    // Inject Floating Quick Cart Button
+    if (!$('#floatingCartBtn').length) {
+        $('body').append(`
+            <div id="floatingCartBtn" class="floating-cart-btn" onclick="openCartModal()" title="View Cart">
+                <i class="fa fa-shopping-basket"></i>
+                <span id="floatingCartBadge" class="badge bg-danger rounded-pill">0</span>
+            </div>
+        `);
     }
 
     // Inject Cart Modal HTML into body if not present
@@ -594,7 +603,7 @@ function updateCartQuantity(foodId, delta) {
 
 function updateCartUI() {
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    $('#cartBadge').text(totalCount);
+    $('#cartBadge, #floatingCartBadge').text(totalCount);
 }
 
 function openCartModal() {
